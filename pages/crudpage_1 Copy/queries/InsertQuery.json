@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "DeleteQuery",
+    "name": "InsertQuery",
     "datasource": {
       "name": "4e20e2ad",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Page1",
+    "pageId": "crudpage_1 Copy",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "DELETE FROM public.\"category\"\n  WHERE \"last_update\" = {{Table1.triggeredRow.last_update}};",
+      "body": "INSERT INTO public.\"category\" (\n\t\"last_update\",\n\t\"name\", \n\t\"category_id\")\nVALUES (\n\t\t\t\t{{insert_col_input1.text}}, \n\t\t\t\t{{insert_col_input2.text}}, \n\t\t\t\t{{insert_col_input3.text}});",
       "pluginSpecifiedTemplates": [
         {
           "value": true
@@ -30,14 +30,16 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "Table1.triggeredRow.last_update"
+      "insert_col_input1.text",
+      "insert_col_input2.text",
+      "insert_col_input3.text"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page1_DeleteQuery",
+  "id": "crudpage_1 Copy_InsertQuery",
   "deleted": false,
-  "gitSyncId": "627bc7fc8466c07628b90307_627bc8078466c07628b9030f"
+  "gitSyncId": "627bc7fc8466c07628b90307_627bc8258466c07628b9031a"
 }
